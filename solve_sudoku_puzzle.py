@@ -54,7 +54,6 @@ for y in range(0, 9):
 
 		if digit is not None:
 			foo = np.hstack([cell, digit])
-			cv2.imshow("Cell/Digit", foo)
 
 			roi = cv2.resize(digit, (28, 28))
 			roi = roi.astype("float") / 255.0
@@ -85,5 +84,6 @@ for (cellRow, boardRow) in zip(cellLocs, board):
 		cv2.putText(puzzleImage, str(digit), (textX, textY),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 255), 2)
 
-cv2.imshow("Sudoku Result", puzzleImage)
+print(args["image"])
+cv2.imwrite(args["image"], puzzleImage)
 cv2.waitKey(0)
