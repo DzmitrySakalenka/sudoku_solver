@@ -7,5 +7,8 @@
         <input type="file" name="file" />  
         <input type = "submit" value="Upload">  
     </form>  
+    {% if name %}
+    <img src="{{url_for('static', filename=name)}}" alt="User Image">
+    {% endif %}
 </body>  
 </html>  

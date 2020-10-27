@@ -26,11 +26,11 @@ def success():
         print(type(f))
         if f and allowed_file(f.filename):
             f.filename = 'sudoku_puzzle.' + f.filename.rsplit('.', 1)[1].lower()
-            f.save('static/new_' + f.filename)
-            os.system(f'python solve_sudoku_puzzle.py --model output/digit_classifier.h5 --image static/new_{f.filename}')
+            f.save('static/' + f.filename)
+            os.system(f'python solve_sudoku_puzzle.py --model output/digit_classifier.h5 --image static/{f.filename}')
             new_file = os.path.join(f.filename)
             print(new_file)
-            return render_template("success.html", name = 'new_' + f.filename, new_name = new_file)  
+            return render_template("index.html", name = f.filename)  
         else:
             return render_template("index.html") 
 
