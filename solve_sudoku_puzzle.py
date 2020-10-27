@@ -85,5 +85,7 @@ for (cellRow, boardRow) in zip(cellLocs, board):
 		cv2.putText(puzzleImage, str(digit), (textX, textY),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 255), 2)
 
+print(args["image"])
+cv2.imwrite(args["image"], puzzleImage)
 cv2.imshow("Sudoku Result", puzzleImage)
 cv2.waitKey(0)
